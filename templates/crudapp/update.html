@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link rel="stylesheet" href='{% static "css/bootstrap.css" %}'>
+</head>
+<body>
+    
+    {% if data %}
+    <h1 style="margin-left: 35%;
+    margin-top: 3%;
+">Update Employee Details</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div style="width: 45%;
+        margin-left: 25%;
+        margin-top: 5%;        
+        ">
+    <div class="mb-3" style="width: 100%;">
+    <label for="">Employee Name</label>
+    <input type="text" class="form-control" name="Emp_Name" value="{{data.Emp_Name}}">
+</div>
+    <br>
+    <div class="mb-3" style="width: 100%;">
+    <label for="">Employee Age</label>
+    <input type="number" class="form-control" name="Emp_Age" value="{{data.Emp_Age}}">
+</div>
+    <br>
+
+    <button type="submit" class="btn btn-primary">Update !</button>
+    </div>
+    </form>
+    
+    {%endif%}
+    <a href="/index" style="margin-left: 45%;"><button class ="btn btn-primary">Home</button></a>
+</body>
+</html>

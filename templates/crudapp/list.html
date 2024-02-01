@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <link rel="stylesheet" href='{% static "css/bootstrap.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style_list.css" %}'>
+</head>
+<body>
+    {% if data %}
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Employee Details</a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/add_employee">Add Employee +</a>
+              </li>
+            </ul>
+            <!--<form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>-->
+          </div>
+        </div>
+      </nav>
+        {% for i in data %}
+        <div class="row" style="margin-top: 7px;
+                                margin-left: 15px;">
+          <!--<div class="col-md-3">
+              <img src="{{i.Employee_image}}" alt="Employee Image" class="img-fluid">
+          </div>-->
+          <div class="col-md-9">
+              <p>Name: {{i.Employee_Name}}</p>
+              <p>ID: {{i.id}}</p>
+              <p>Age: {{i.Employee_Age}}</p>
+              <p>Joining Date: {{i.Employee_joining_date}}</p>
+              <a href="/update/{{i.id}}"><button class="btn btn-warning">Update</button></a>  
+              <a href="/delete/{{i.id}}"><button class="btn btn-danger">Delete</button></a></td>
+              <hr>
+          </div>
+        </div>
+      
+      
+  
+    {% endfor %}
+    {% else %}
+    <h1>No Details Found !</h1>
+    {% endif %}
+
+</body>
+</html>
